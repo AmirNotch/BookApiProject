@@ -39,6 +39,37 @@ namespace BookApiProj.Services
         public Category GetCategory(int categoryId)
         {
             return _categoryContext.Categories.Where(c => c.Id == categoryId).FirstOrDefault();
-        }   
+        }
+
+        public bool IsDuplicateCategoryName(int categoryId, string categoryName)
+        {
+            var category = _categoryContext.Categories.Where(c => c.Name.Trim().ToUpper() == categoryName.Trim().ToUpper()
+                                                && c.Id != categoryId).FirstOrDefault();
+            return category == null ? false : true;
+        }
+
+        public bool CreateCategory(Category category)
+        {
+            _categoryContext.AddAsync(category);
+            return Save();
+        }
+
+        public bool UpdateCategory(Category category)
+        {
+            _categoryContext.Update(category);
+            return Save();
+        }
+
+        public bool DeleteCategory(Category category)
+        {
+            _categoryContext.Remove(category);
+            return Save();
+        }
+
+        public bool Save()
+        {
+            var save = _categoryContext.SaveChanges();
+            return save >= 0 ? true : false;
+        }
     }
 }

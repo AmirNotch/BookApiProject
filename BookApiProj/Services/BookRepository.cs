@@ -52,7 +52,7 @@ namespace BookApiProj.Services
             return _bookContext.Books.OrderBy(b => b.Title).ToList();
         }
 
-        public bool IsDuplicatelIsbn(int bookId, string bookIsbn)
+        public bool IsDuplicateIsbn(int bookId, string bookIsbn)
         {
             var book = _bookContext.Books.Where(b => b.Isbn.Trim().ToUpper() == bookIsbn.Trim().ToUpper() 
                                                 && b.Id != bookId).FirstOrDefault();

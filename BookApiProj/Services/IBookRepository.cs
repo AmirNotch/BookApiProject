@@ -13,7 +13,7 @@ namespace BookApiProj.Services
         Book GetBook(string bookIsbn);
         bool BookExists(int bookId);
         bool BookExists(string bookIsbn);
-        bool IsDuplicatelIsbn(int bookId, string bookIsbn);
+        bool IsDuplicateIsbn(int bookId, string bookIsbn);
         decimal GetBookRating(int bookId);
     }
 }
