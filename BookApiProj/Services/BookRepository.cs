@@ -107,7 +107,7 @@ namespace BookApiProj.Services
             var categories = _bookContext.Categories.Where(c => categoriesId.Contains(c.Id)).ToList();
 
             var bookAuthorsToDelete = _bookContext.BookAuthors.Where(b => b.BookId == book.Id);
-            var bookCategoriesToDelete = _bookContext.BookCategories.Where(c => c.CategoryId == book.Id);
+            var bookCategoriesToDelete = _bookContext.BookCategories.Where(c => c.BookId == book.Id);
 
             _bookContext.RemoveRange(bookAuthorsToDelete);
             _bookContext.RemoveRange(bookCategoriesToDelete);
