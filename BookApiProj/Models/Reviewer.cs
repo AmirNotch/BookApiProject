@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookApiProj.Models
@@ -16,5 +17,7 @@ namespace BookApiProj.Models
         [Required]
         [MaxLength(200, ErrorMessage = "Last Name can not be more than 200 characters")]
         public string LastName { get; set; }
+
+        public virtual ICollection<Review> Reviews { get; set; }
     }
 }

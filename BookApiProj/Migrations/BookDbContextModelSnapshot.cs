@@ -246,7 +246,7 @@ namespace BookApiProj.Migrations
                         .HasForeignKey("BookId");
 
                     b.HasOne("BookApiProj.Models.Reviewer", "Reviewer")
-                        .WithMany()
+                        .WithMany("Reviews")
                         .HasForeignKey("ReviewerId");
 
                     b.Navigation("Book");
@@ -276,6 +276,11 @@ namespace BookApiProj.Migrations
             modelBuilder.Entity("BookApiProj.Models.Country", b =>
                 {
                     b.Navigation("Authors");
+                });
+
+            modelBuilder.Entity("BookApiProj.Models.Reviewer", b =>
+                {
+                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }

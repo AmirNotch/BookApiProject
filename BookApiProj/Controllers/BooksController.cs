@@ -14,6 +14,10 @@ namespace BookApiProj.Controllers
     public class BooksController : ControllerBase
     {
         private IBookRepository _bookRepository;
+        private IAuthorRepository _authorRepository;
+        private ICategoryRepository _categoryRepository;
+        private IReviewRepository _reviewRepository;
+
 
         public BooksController(IBookRepository bookRepository)
         {

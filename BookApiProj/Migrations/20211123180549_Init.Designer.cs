@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookApiProj.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    [Migration("20211118140432_Init")]
+    [Migration("20211123180549_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -248,7 +248,7 @@ namespace BookApiProj.Migrations
                         .HasForeignKey("BookId");
 
                     b.HasOne("BookApiProj.Models.Reviewer", "Reviewer")
-                        .WithMany()
+                        .WithMany("Reviews")
                         .HasForeignKey("ReviewerId");
 
                     b.Navigation("Book");
@@ -278,6 +278,11 @@ namespace BookApiProj.Migrations
             modelBuilder.Entity("BookApiProj.Models.Country", b =>
                 {
                     b.Navigation("Authors");
+                });
+
+            modelBuilder.Entity("BookApiProj.Models.Reviewer", b =>
+                {
+                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }

@@ -11,5 +11,6 @@ namespace BookApiProj.Dtos
         public string Headline { get; set; }
         public string ReviewText { get; set; }
         public int Rating { get; set; }
+
     }
 }

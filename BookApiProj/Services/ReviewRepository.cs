@@ -44,7 +44,7 @@ namespace BookApiProj.Services
 
         public bool CreateReview(Review review)
         {
-            _reviewContext.AddAsync(review);
+            _reviewContext.Add(review);
             return Save();
         }
 
@@ -63,6 +63,12 @@ namespace BookApiProj.Services
         public bool UpdateReview(Review review)
         {
             _reviewContext.Update(review);
+            return Save();
+        }
+
+        public bool DeleteReviews(List<Review> reviews)
+        {
+            _reviewContext.RemoveRange(reviews);
             return Save();
         }
     }
